@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+     
+        <record model="ir.actions.act_window" id="manage.action_developer_window">
+            <field name="name">manage developer window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        
+
+        <menuitem name="Devs" id="manage.menu_1_devs_list" parent="menu_manage_raiz"
+            action="manage.action_developer_window"/>
+    </data>
+    
+</odoo>

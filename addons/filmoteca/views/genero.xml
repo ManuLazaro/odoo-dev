@@ -1,0 +1,74 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="vista_filmoteca_genero_tree">
+      <field name="name">vista_filmoteca_genero_tree</field>
+      <field name="model">filmoteca.genero</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="vista_filmoteca_genero_form">
+      <field name="name">vista_filmoteca_genero_form</field>
+      <field name="model">filmoteca.genero</field>
+      <field name="arch" type="xml">
+        <form string="formulario_genero" >
+          <sheet>
+            <group name="group_top">
+              <field name="name"/>
+              <field name="peliculas_id"/>
+            </group>
+          </sheet>
+
+        </form>
+      </field>
+    </record>
+
+
+
+    
+    <record model="ir.actions.act_window" id="accion_filmoteca_genero_form">
+      <field name="name">géneros</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">filmoteca.genero</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Generos
+        </p>
+        <p> Click <strong> 'Crear' </strong> para añadir nuevos elementos
+         </p>
+      </field>
+    </record>
+
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="filmoteca.action_server">
+      <field name="name">filmoteca server</field>
+      <field name="model_id" ref="model_filmoteca_filmoteca"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+  
+
+    <menuitem name="Listado de generos" id="menu_filmoteca_listado_generos" parent="menu_filmoteca_raiz"/>
+    
+   
+    <menuitem name="Consultar" id="menu_filmoteca_generos" parent="menu_filmoteca_listado_generos" 
+    action="accion_filmoteca_genero_form"/>
+    
+  </data>
+</odoo>

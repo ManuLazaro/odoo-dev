@@ -1,0 +1,49 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="vista_manage_customer_tree">
+            <field name="name">vista_manage_customer_tree</field>
+            <field name="model">manage.customer</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="projects"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="vista_manage_customer_form">
+            <field name="name">vista_manage_customer_form</field>
+            <field name="model">manage.customer</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="projects"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="accion_manage_customer_form">
+            <field name="name">Listado de clientes</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">manage.customer</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Cliente
+                </p>
+                <p>Haga clic en <strong>'Crear'</strong> para añadir nuevos elementos.</p>
+            </field>
+        </record>
+
+         <menuitem name="Listado de clientes" id="menu_manage_listado_customer" parent="menu_manage_raiz"/>
+    
+   
+         <menuitem name="Consultar" id="menu_manage_customer" parent="menu_manage_listado_customer" 
+         action="accion_manage_customer_form"/>     
+    </data>
+</odoo>

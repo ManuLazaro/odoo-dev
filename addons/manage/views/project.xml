@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="vista_manage_project_tree">
+        <field name="name">vista_manage_project_tree</field>
+        <field name="model">manage.project</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="customer_id"/>
+                </tree>
+            </field>
+        </record>   
+        <record model="ir.ui.view" id="vista_manage_project_form">
+        <field name="name">vista_manage_project_form</field>
+        <field name="model">manage.project</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="customer_id"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="accion_manage_project_form">
+            <field name="name">Listado de project</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name= "res_model">manage.project</field>
+            <field name= "view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    project
+                </p>
+                <p>Click <strong> 'Crear' </strong> para añadir nuevos elementos
+                </p>
+             </field>
+        </record> 
+         <menuitem name="Listado de projectos" id="menu_manage_listado_project" parent="menu_manage_raiz"/>
+    
+   
+         <menuitem name="Consultar" id="menu_manage_project" parent="menu_manage_listado_project" 
+         action="accion_manage_project_form"/>     
+    </data>
+</odoo>
